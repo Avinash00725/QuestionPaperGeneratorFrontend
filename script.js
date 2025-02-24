@@ -28,6 +28,7 @@ async function handleFileUpload(e) {
 
         alert('Excel file uploaded and processed successfully!');
     } catch (error) {
+        console.log('hi');
         console.error('Upload Error:', error);
         alert('Error uploading file: ' + error.message);
     }
