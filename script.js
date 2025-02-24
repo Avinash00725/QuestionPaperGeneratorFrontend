@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://questionpapergeneratorbackend.onrender.com';
+const API_BASE_URL = 'https://questionpapergeneratorbackend-2.onrender.com';
 
 // Event listeners
 document.getElementById('excelFile').addEventListener('change', handleFileUpload);
