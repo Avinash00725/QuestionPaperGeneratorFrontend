@@ -21,7 +21,22 @@
                 <select id="paperType">
                     <option value="mid1">First Mid (Units 1-2)</option>
                     <option value="mid2">Second Mid (Units 3-5)</option>
+                    <option value="special">Special Mid</option>
                 </select>
+            </div>
+
+            <div id="specialMidOptions" style="display: none;">
+                <h3>Select Units for Special Mid:</h3>
+                <div>
+                    <label>Main Unit (2 questions):</label>
+                    <select id="mainUnit">
+                        <option value="1">Unit 1</option>
+                        <option value="2">Unit 2</option>
+                        <option value="3">Unit 3</option>
+                        <option value="4">Unit 4</option>
+                        <option value="5">Unit 5</option>
+                    </select>
+                </div>
             </div>
 
             <button id="generateButton">Generate Question Paper</button>
@@ -34,6 +49,8 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
