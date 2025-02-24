@@ -60,7 +60,7 @@ async function generateQuestionPaper() {
 function displayQuestionPaper(questions, paperDetails) {
     const html = `
         <div class="paper-header">
-            <h2>${paperDetails.subject} (${paperDetails.subjectCode})</h2>
+            <h4>Subject : ${paperDetails.subject} (${paperDetails.subjectCode})</h4>
             <p>Branch: ${paperDetails.branch}</p>
             <p>Regulation: ${paperDetails.regulation}</p>
             <p>Year: ${paperDetails.year} | Semester: ${paperDetails.semester}</p>
@@ -89,6 +89,49 @@ function displayQuestionPaper(questions, paperDetails) {
 
     document.getElementById('questionPaper').innerHTML = html;
 }
+
+// ... (previous code remains the same until the event listeners)
+
+// Add event listener for paper type change
+document.getElementById('paperType').addEventListener('change', function(e) {
+    const specialMidOptions = document.getElementById('specialMidOptions');
+    specialMidOptions.style.display = e.target.value === 'special' ? 'block' : 'none';
+});
+
+async function generateQuestionPaper() {
+    const paperType = document.getElementById('paperType').value;
+    let requestBody = { paperType };
+
+    // Add main unit for special mid
+    if (paperType === 'special') {
+        const mainUnit = parseInt(document.getElementById('mainUnit').value);
+        requestBody.mainUnit = mainUnit;
+    }
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/generate`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.error || 'Error generating question paper');
+        }
+
+        displayQuestionPaper(data.questions, data.paperDetails);
+        document.getElementById('downloadButton').style.display = 'block';
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error generating question paper: ' + error.message);
+    }
+}
+
+// ... (rest of the frontend code remains the same)
 
 function downloadQuestionPaper() {
     const questionPaper = document.getElementById('questionPaper');
