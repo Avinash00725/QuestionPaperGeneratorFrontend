@@ -144,10 +144,11 @@ function displayQuestionPaper(questions, paperDetails, allowEdit = true) {
                 `).join('')}
                 </tbody>
             </table>
-        </div>
+        
         <br>
         <br>
          <p style="text-align: center;">*<strong>*** ALL THE BEST ****</strong></p>
+         </div>
     `;
     document.getElementById('questionPaper').innerHTML = html;
 }
@@ -314,10 +315,10 @@ async function downloadQuestionPaper() {
                 `).join('')}
                 </tbody>
             </table>
-        </div>
         <br>
         <br>
          <p style="text-align: center;">*<strong>*** ALL THE BEST ****</strong></p>
+         </div>
     `;
     hiddenContainer.innerHTML = html;
 
