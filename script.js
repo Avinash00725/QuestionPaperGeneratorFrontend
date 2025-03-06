@@ -145,6 +145,9 @@ function displayQuestionPaper(questions, paperDetails, allowEdit = true) {
                 </tbody>
             </table>
         </div>
+        <br>
+        <br>
+         <p style="text-align: center;">*<strong>*** ALL THE BEST ****</strong></p>
     `;
     document.getElementById('questionPaper').innerHTML = html;
 }
@@ -312,6 +315,9 @@ async function downloadQuestionPaper() {
                 </tbody>
             </table>
         </div>
+        <br>
+        <br>
+         <p style="text-align: center;">*<strong>*** ALL THE BEST ****</strong></p>
     `;
     hiddenContainer.innerHTML = html;
 
